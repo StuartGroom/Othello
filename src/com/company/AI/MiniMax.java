@@ -44,18 +44,11 @@ public class MiniMax {
             Board = board.setMove(Board, new int[]{x, y}, disc);
             Board = gameHandler.flipDiscs(disc, oppDisc, x, y, Board);
             Main.setTurnFlag(false);
-            //System.out.println("-------------------DEBUG-------------------");
             long decisionTime = System.nanoTime() - timeInit;
-            //System.out.println("time/100ns: " + decisionTime/1000);
 
             //setting for excel spreadsheet output
             Main.setTimeTaken(decisionTime);
             Main.setChecksDone(1);
-
-           // System.out.println("-------------------------------------------");
-
-
-            //board.printBoard(Board);
 
         }
         return Board;
@@ -66,7 +59,6 @@ public class MiniMax {
 
         ArrayList<char[][]> children = new ArrayList<>();
         for (int[] i : legalMoves) {    //make list of every child
-    //        System.out.println("Coord: " + i[0] + " " + i[1]);
             int stringPos = (i[0]) * 8 + i[1];
             String boardString = replaceChar(boardStr, disc, stringPos); //makes the move
             char[][] boardGrid = board.stringToGrid(boardString);
@@ -158,9 +150,6 @@ public class MiniMax {
         }
     }
 
-    //    //https://docs.oracle.com/javase/1.5.0/docs/api/java/lang/StringBuilder.html
-    //    //string builder fasters than a string buffer
-
     public static long minimaxAB(char[][] Board, boolean blackTurn, int depth, long alpha, long beta) {
 
         long timeInit = System.nanoTime();
@@ -183,7 +172,6 @@ public class MiniMax {
         if (depth == 0){
             totalCountAB++;
             return evalFunction(Board, blackTurn);
-            //return evalFunction(Board, blackTurn);
         }
 
         if (blackTurn) { //max
@@ -272,7 +260,6 @@ public class MiniMax {
         if (depth == 0){
             totalCountAB++;
             return evalFunction2(Board, blackTurn);
-            //return evalFunction(Board, blackTurn);
         }
 
         if (blackTurn) { //max
@@ -299,13 +286,7 @@ public class MiniMax {
                     Main.setTurnFlag(false);
                 }
 
-//                board.setMove(new int[]{x, y}, disc);
-//                gameHandler.flipDiscs(disc, oppDisc, x, y, Main.grid.getBoard());
-
-//                System.out.println("-------------------DEBUG-------------------");
-//                System.out.println("total count AB:" + totalCountAB);
                 long decisionTime = System.nanoTime() - timeInit;
-//                System.out.println("time/100ns: " + decisionTime/1000);
 
                 //setting for excel spreadsheet output
                 Main.setTimeTaken(decisionTime);
@@ -313,7 +294,6 @@ public class MiniMax {
 
                 totalCountAB = 0;
 
-//                System.out.println("-------------------------------------------");
             }
             return maxEval;
         } else { //min
@@ -341,10 +321,7 @@ public class MiniMax {
                     Main.setTurnFlag(false);
                 }
 
-                //               System.out.println("-------------------DEBUG-------------------");
-                //              System.out.println("total count AB:" + totalCountAB);
                 long decisionTime = System.nanoTime() - timeInit;
-                //             System.out.println("time/100ns: " + decisionTime/1000);
 
                 //setting for excel spreadsheet output
                 Main.setTimeTaken(decisionTime);
@@ -352,7 +329,6 @@ public class MiniMax {
 
                 totalCountAB = 0;
 
-                //           System.out.println("-------------------------------------------");
             }
             return minEval;
         }
@@ -398,8 +374,6 @@ public class MiniMax {
 
         int[] scores = board.getScore(Board);
 
-        //frontiers is also good to use
-        //stability is also good to use
         char disc;
         char oppDisc;
         if (Main.blackTurn) {
@@ -418,17 +392,7 @@ public class MiniMax {
         if (Main.turnCount > 8){
             blackScore = midGame(Board, scores, blackTurn);
         }
-//        if (Main.turnCount > 50){   //brute force at end game
-//            System.out.println("late game");
-//            while (!Main.gameEnded){
-//                MiniMax.minimaxAB(Board, Main.blackTurn, 60-Main.turnCount, -100000, 100000);
-//                if (Main.moveSet){
-//                    Main.setTurnFlag(false);
-//                    board.setMove(Board, new int[]{Main.minimaxCoords[0], Main.minimaxCoords[1]}, disc);
-//                    gameHandler.flipDiscs(disc, oppDisc, Main.minimaxCoords[0], Main.minimaxCoords[1], Board);
-//                }
-//            }
-//        }
+
         return blackScore; //returning only blackScore; because white just wants to minimise blackScore
     }
 
@@ -455,9 +419,6 @@ public class MiniMax {
         if (blackDiscScore != 0){   //want to maximise number of opposite in early game to increase mobility
             blackDiscDiff = whiteDiscScore - blackDiscScore;
         }
-
-        //frontiers also??
-        //also stick in center??
 
         return 100*mobility + 5*(blackDiscDiff) + blackBoardScore;
     }
@@ -584,15 +545,14 @@ public class MiniMax {
                 board.setMove(Board, new int[]{x, y}, disc);
                 gameHandler.flipDiscs(disc, oppDisc, x, y, Board);
                 Main.setTurnFlag(false);
-//                System.out.println("-------------------DEBUG-------------------");
-//                System.out.println("total count GAB:" + totalCountGAB);
+
                 long decisionTime = System.nanoTime() - timeInit;
-//                System.out.println("time/100ns: " + decisionTime/1000);
+
                 //setting for excel spreadsheet output
                 Main.setTimeTaken(decisionTime);
                 Main.setChecksDone(totalCountGAB);
                 totalCountGAB = 0;
-//                System.out.println("-------------------------------------------");
+
             }
             return maxEval;
         } else { //min
@@ -618,17 +578,16 @@ public class MiniMax {
                 board.setMove(Board, new int[]{x, y}, disc);
                 gameHandler.flipDiscs(disc, oppDisc, x, y, Board);
                 Main.setTurnFlag(false);
-//                System.out.println("-------------------DEBUG-------------------");
-//                System.out.println("total count GAB:" + totalCountGAB);
+
                 long decisionTime = System.nanoTime() - timeInit;
-//                System.out.println("time/100ns: " + decisionTime/1000);
+
 
                 //setting for excel spreadsheet output
                 Main.setTimeTaken(decisionTime);
                 Main.setChecksDone(totalCountGAB);
 
                 totalCountGAB = 0;
-//                System.out.println("-------------------------------------------");
+
             }
             return minEval;
         }
@@ -660,10 +619,6 @@ public class MiniMax {
         }
 
         float blackScore = weights[0]*mobility + weights[1]*(blackDiscDiff) + weights[2]*blackBoardScore;
-
-    //    System.out.println("weights");
-    //    System.out.println(weights[0] + " " +  weights[1] + " " +  weights[2]);
-    //    System.out.println(blackScore);
 
         return (int) blackScore;
         //returning only blackScore; because white just wants to minimise blackScore

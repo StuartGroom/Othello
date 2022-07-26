@@ -4,9 +4,7 @@ import com.company.Main;
 import com.company.othello.board;
 import com.company.othello.playerMove;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+
 import java.util.Random;
 
 
@@ -195,20 +193,6 @@ public class geneticAlgorithm {
 
         int pad = 8 - binary.length();
 
-        //attempt 1
-//        for (int i = 0; i < pad; i++){
-//            paddingBinary.append("0");
-//        }
-//        paddingBinary.append(binary);
-
-        //attempt 2
-//        StringBuilder paddingBinary = new StringBuilder(); //faster/better than concatination
-//        paddingBinary.append("0".repeat(Math.max(0, pad)));
-//        paddingBinary.append(binary);
-
-        //attempt 3
-//        String paddingBinary = "0".repeat(Math.max(0, pad)) + binary;//faster/better than concatination
-
         return "0".repeat(Math.max(0, pad)) + binary;
     }
 
@@ -251,7 +235,7 @@ public class geneticAlgorithm {
 
         binarySwap.setCharAt(locus, swapped);
         String binaryMutated  =  binarySwap.toString();
-        //String mutatedBinary = replaceChar(binary, swap, locus);
+
 
         System.out.println("mutated Binary");
         System.out.println("Binary: " + binaryMutated);

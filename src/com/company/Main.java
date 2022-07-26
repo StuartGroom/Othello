@@ -190,9 +190,7 @@ public class Main implements Runnable {
 
     //genetic algo
     private void geneticAlgoMain(){
-
         geneticAlgorithm.geneticAlgo(20, 1, 100, 6);
-        //do a test case to show it works with pop of uneven size
     }
 
     //main game

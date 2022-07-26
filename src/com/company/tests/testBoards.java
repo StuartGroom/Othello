@@ -4,9 +4,9 @@ public class testBoards {
 
     static char[][] testBoard(int option){
 
-        //got a few different openings to test on this website
+        //got a few different openings to test on this website:
         //http://samsoft.org.uk/reversi/
-        //have to be careful because not all of them are black move in this evaluation
+
 
         //test iago is for black - has 2 best moves to check
         char[][] testBoard;//initialised as empty
@@ -49,7 +49,6 @@ public class testBoards {
             testBoard[4][5] = 'b';
 
         }
-        //current algo makes the worst move possible in the option 1
 
         //3 mid game boards
         else if (option == 3){ //Iago - black move

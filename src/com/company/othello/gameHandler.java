@@ -111,13 +111,6 @@ public class gameHandler {
             }
         }
 
-        //output legal moves list
-//        System.out.println("\n-----legal moves moves-----");
-//        for (int[] i : potentialMoves) {
-//            System.out.println(i[0] + " " + i[1]);
-//        }
-//        System.out.println("-------------------------");
-
         return potentialMoves;
     }
 

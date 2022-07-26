@@ -112,7 +112,6 @@ public class Node {
 
         Node selected = null;
         double bestValue = Double.MIN_VALUE;
-        //System.out.println("in select v2");
         for (Node child : childrenNodes) {   //selects the best child - UCT decides between exploration/exploitation
             double uctValue = value / (visits + epsilon) +
                     Math.sqrt(Math.log(visits +1) / (visits + epsilon)) +
@@ -127,7 +126,6 @@ public class Node {
                 bestValue = uctValue;
             }
         }
-        //System.out.println("best value" + bestValue);
         treeTurn = !treeTurn;
         System.out.println(selected);
         return selected;
@@ -152,7 +150,6 @@ public class Node {
         String tempboard = board.gridToString(Board);
         char[][] tempBoard = board.stringToGrid(tempboard);
 
-        //char[][] tempBoard = Board;
         while (!Main.gameEnded){    //play out game until end with random moves
             if (playerMove.hasMoves(getBoard(node), treeTurn) != null) {
                 System.out.println("turn "+ treeTurn);

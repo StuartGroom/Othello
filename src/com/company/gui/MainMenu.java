@@ -90,10 +90,7 @@ public class MainMenu extends JPanel {
         g.setColor(Color.black);
         g.drawString("tournament", tournamentButton.x +2, tournamentButton.y+50);
 
-    //maybe to the left of these have the disc of the right color?
-        //
-        //
-        //
+
         JLabel blackLabel = new JLabel("<html><font size='6' color=white>Black player:</font></html>");
         blackLabel.setFont(Font.getFont("ariel"));
         blackLabel.setPreferredSize(new Dimension(200, 50));
@@ -138,11 +135,5 @@ public class MainMenu extends JPanel {
         this.add(blackLabel);
         this.add(whiteLabel);
 
-//        g2d.draw(pveButton);
-//        g.drawString("player vs easy", pveButton.x +2, pveButton.y+50);
-//        g2d.draw(pvmButton);
-//        g.drawString("player vs medium", pvmButton.x +2, pvmButton.y+50);
-//        g2d.draw(pvhButton);
-//        g.drawString("player vs hard", pvhButton.x +2, pvhButton.y+50);
     }
 }
