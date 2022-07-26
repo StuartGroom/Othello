@@ -4,4 +4,3 @@ Honours year project for University of Liverpool 3rd year. Othello board game AI
 Dissertation proposal, presentation and writeup links:
 https://docs.google.com/document/d/1O2En1E0QQTRKZld5pqbrPV9m3CLDyJLxr0dADjbtdE0/edit?usp=drivesdk
 
-*problem with upload- src folder not uploaded inside Othello folder. Will fix after moving and setting up again properly*
